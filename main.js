@@ -24,10 +24,10 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// set up static middleware for public folders
-app.use(express.static(dir.public));
-****app.use('/vendor/jquery', express.static(dir.jquery));
-*****app.use('/vendor/materialize', express.static(dir.materialize));
+// // set up static middleware for public folders
+// app.use(express.static(dir.public));
+// ****app.use('/vendor/jquery', express.static(dir.jquery));
+// *****app.use('/vendor/materialize', express.static(dir.materialize));
 
 // Set up Node to use EJS as templating engine
 app.set('view engine', 'ejs');
