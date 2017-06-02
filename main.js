@@ -4,7 +4,7 @@ const logger         = require('morgan');
 const path           = require('path');
 const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
-const recipeRouter    = require('./controllers/recipes');
+// const recipeRouter   = require('./controllers/recipes');
 
 // who is setting our port?
 const PORT = process.argv[2] || process.env.PORT || 3000;
@@ -36,7 +36,8 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 
 /* ROUTES */
-*****app.use('/recipes', recipeRouter);
+app.USE(require('./controllers'));
+// *****app.use('/recipes', require('./controllers/recipes');
 
 // Make sure "/" automatically redirects to "/hotels"
 app.get('/', (req, res) => {
