@@ -4,8 +4,8 @@ INSERT INTO recipes (
   recipe_name,
   category,
   main_ingredient,
-  keyword
-  dish_img
+  keyword,
+  dish_img,
   date_created
 ) VALUES
 

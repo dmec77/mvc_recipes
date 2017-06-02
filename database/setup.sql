@@ -4,7 +4,8 @@ DROP TABLE IF EXISTS recipes;
 
 \c mvc_app_recipes;
 
-CREATE TABLE recipes (
+CREATE TABLE
+recipes
   (id SERIAL PRIMARY KEY,
   recipe_name VARCHAR(64) NOT NULL,
   category TEXT,
