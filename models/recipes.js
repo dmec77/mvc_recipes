@@ -19,7 +19,7 @@ module.exports = {
                 //     .catch(err => next(err));
                 // },
 
-                      // FILE LOCATION: index.js
+                      // FILE LOCATION: routes.js
                       // *****router.get('/new', views.formNew);
                       //   //above is saying when you get a request on the /new URL
                       //
@@ -48,7 +48,7 @@ module.exports = {
         //     .catch(() => res.sendStatus(404));
         // },
 
-                  // FILE LOCATION: index.js
+                  // FILE LOCATION: routes.js
                   // *****router.get('/:id/edit', controller.getOne, views.formEdit);
                   //
                   //       // FILE LOCATION: viewsController.js in RES
@@ -91,25 +91,25 @@ RETURNING *
         //     .catch(err => next(err));
         // },
 
-                // FILE LOCATION: index.js
-                // ****  .post(controller.create, views.handleCreate);
-                //
-                //       // FILE LOCATION: viewsController.js in RES
-                //       // handleCreate(req, res) {
-                //       //   res.format({
-                //       //     /* REDIRECT TO THE HOME PAGE */
-                //       //     html() {
-                //       //       res.redirect('/home');
-                //       //     },
-                //       //
-                //       //     /* SEND OUT JSON */
-                //       //     // we don't need a body, just a 201
-                //       //     json() {
-                //       //       res.location(`/recipes/${res.locals.recipe.id}`)
-                //       //       .sendStatus(201);
-                //       //     },
-                //       //   });
-                //       // },
+            // FILE LOCATION: routes.js
+            // ****  .post(controller.create, views.handleCreate);
+            //
+            //       // FILE LOCATION: viewsController.js in RES
+            //       // handleCreate(req, res) {
+            //       //   res.format({
+            //       //     /* REDIRECT TO THE HOME PAGE */
+            //       //     html() {
+            //       //       res.redirect('/home');
+            //       //     },
+            //       //
+            //       //     /* SEND OUT JSON */
+            //       //     // we don't need a body, just a 201
+            //       //     json() {
+            //       //       res.location(`/recipes/${res.locals.recipe.id}`)
+            //       //       .sendStatus(201);
+            //       //     },
+            //       //   });
+            //       // },
 
 
 
@@ -127,42 +127,42 @@ RETURNING *
 },
 
 ******** FIX SO DOES NOT CHANGE EXISTING********
-              // FILE LOCATION: controller.js in RES
-              // update(req, res, next) {
-              //   Recipe.findById(req.params.id)
-              //     .catch(() => res.sendStatus(404))
-              //     .then((oldHotel) => {
-              //       const newHotel = {};
-              //       // body.hotel + oldhotel = newHotel
-              //       Object.assign(newHotel, oldHotel, req.body.hotel);
-              //       return Hotel.update(newHotel);
-              //     })
-              //     .then((hotel) => {
-              //       res.locals.hotel = hotel;
-              //       next();
-              //     })
-              //     .catch(err => next(err));
-              // },
+          // FILE LOCATION: controller.js in RES
+          // update(req, res, next) {
+          //   Recipe.findById(req.params.id)
+          //     .catch(() => res.sendStatus(404))
+          //     .then((oldHotel) => {
+          //       const newHotel = {};
+          //       // body.hotel + oldhotel = newHotel
+          //       Object.assign(newHotel, oldHotel, req.body.hotel);
+          //       return Hotel.update(newHotel);
+          //     })
+          //     .then((hotel) => {
+          //       res.locals.hotel = hotel;
+          //       next();
+          //     })
+          //     .catch(err => next(err));
+          // },
 
-                      // FILE LOCATION: index.js
-                      // ****.put(controller.update, views.handleUpdate)
-                      //
-                      //       // FILE LOCATION: viewsController.js in RES
-                      //       // handleUpdate(req, res) {
-                      //       //   res.format({
-                      //       //     /* REDIRECT TO THE HOME PAGE */
-                      //       //     html() {
-                      //       //       res.redirect('/home');
-                      //       //     },
-                      //       //
-                      //       //     /* SEND OUT JSON */
-                      //       //     // we don't need a body, just a 201
-                      //       //     json() {
-                      //       //       res.location(`/recipes/${res.locals.recipe.id}`)
-                      //       //       .sendStatus(200);
-                      //       //     },
-                      //       //   });
-                      //       // },
+                  // FILE LOCATION: routes.js
+                  // .put(controller.update, views.handleUpdate)
+                  //
+                  //       // FILE LOCATION: viewsController.js in RES
+                  //       // handleUpdate(req, res) {
+                  //       //   res.format({
+                  //       //     /* REDIRECT TO THE HOME PAGE */
+                  //       //     html() {
+                  //       //       res.redirect('/home');
+                  //       //     },
+                  //       //
+                  //       //     /* SEND OUT JSON */
+                  //       //     // we don't need a body, just a 201
+                  //       //     json() {
+                  //       //       res.location(`/recipes/${res.locals.recipe.id}`)
+                  //       //       .sendStatus(200);
+                  //       //     },
+                  //       //   });
+                  //       // },
 
 
 
@@ -185,7 +185,7 @@ RETURNING *
 //                       // },
 //                       // };
 //
-//                             FILE LOCATION: index.js
+//                             FILE LOCATION: routes.js
 //                             ****  .delete(controller.destroy, views.handleDelete);
 //
 //                                   // FILE LOCATION: viewsController.js in RES
