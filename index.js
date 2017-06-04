@@ -4,7 +4,7 @@ const logger         = require('morgan');
 const path           = require('path');
 const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
-const recipeRouter   = require('/controllers/recipes');
+const recipeRouter   = require('./controller/recipes');
 
 
 const PORT = process.argv[2] || process.env.PORT || 3000;
@@ -26,8 +26,8 @@ app.use(bodyParser.json());
 
 
 app.use(express.static(dir.public));
-app.use('/vendor/jquery', express.static(dir.jquery));
-app.use('/vendor/materialize', express.static(dir.materialize));
+app.use('/vendors/jquery', express.static(dir.jquery));
+app.use('/vendors/materialize', express.static(dir.materialize));
 
 // Set up Node to use EJS as templating engine
 app.set('view engine', 'ejs');
