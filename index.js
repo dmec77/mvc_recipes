@@ -4,7 +4,7 @@ const logger         = require('morgan');
 const path           = require('path');
 const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
-const recipeRouter   = require('../controller/recipes');
+const recipeRouter   = require('./controller/recipes/controller');
 
 
 const PORT = process.argv[2] || process.env.PORT || 3000;
