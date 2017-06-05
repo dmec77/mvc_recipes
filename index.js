@@ -58,8 +58,6 @@ app.post("/recipes", (req, res) => {
     });
 });
 
-// Global error handler middleware
-// global error handler
 app.use((err, req, res, next) => {
   console.error(err.stack, next);
   return res.sendStatus(500);

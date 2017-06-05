@@ -122,20 +122,21 @@ WHERE id = $/id/
 RETURNING *
 `, recipe);
 },
+}
 
-******** FIX SO DOES NOT CHANGE EXISTING********
+// ******** FIX SO DOES NOT CHANGE EXISTING********
           // FILE LOCATION: controller.js in RES
           // update(req, res, next) {
           //   Recipe.findById(req.params.id)
           //     .catch(() => res.sendStatus(404))
-          //     .then((oldHotel) => {
-          //       const newHotel = {};
-          //       // body.hotel + oldhotel = newHotel
-          //       Object.assign(newHotel, oldHotel, req.body.hotel);
-          //       return Hotel.update(newHotel);
+          //     .then((oldrecipe) => {
+          //       const newrecipe = {};
+          //       // body.recipe + oldrecipe = newrecipe
+          //       Object.assign(newrecipe, oldrecipe, req.body.recipe);
+          //       return recipe.update(newrecipe);
           //     })
-          //     .then((hotel) => {
-          //       res.locals.hotel = hotel;
+          //     .then((recipe) => {
+          //       res.locals.recipe = recipe;
           //       next();
           //     })
           //     .catch(err => next(err));
@@ -163,12 +164,12 @@ RETURNING *
 
 
 
-********* THIS IS AN EXAMPLE ON HOW TO DELETE ********* ?????
+// ********* THIS IS AN EXAMPLE ON HOW TO DELETE ********* ?????
 
 //   destroy(id) {
 //     return db.none(`
 //       DELETE
-//       FROM hotels
+//       FROM recipes
 //       WHERE id = $1
 //     `, id);
 //   },
@@ -176,7 +177,7 @@ RETURNING *
 //
 //                       // FILE LOCATION: controller.js in RES
 //                       // destroy(req, res, next) {
-//                       //   Hotel.destroy(req.params.id)
+//                       //   recipe.destroy(req.params.id)
 //                       //     .then(() => next())
 //                       //     .catch(err => next(err));
 //                       // },
@@ -190,7 +191,7 @@ RETURNING *
 //                                   //   res.format({
 //                                   //     /* REDIRECT TO THE HOME PAGE */
 //                                   //     html() {
-//                                   //       res.redirect('/hotels');
+//                                   //       res.redirect('/recipes');
 //                                   //     },
 //                                   //
 //                                   //     /* SEND OUT JSON */
