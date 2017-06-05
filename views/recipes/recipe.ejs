@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include ./partials/head.ejs %>
+  </head>
+
+    <body>
+      <h1><%= recipes.recipe_name %></h1>
+      <article class="ingredients">
+
+      </article>
+
+      <article class="directions">
+
+      </article>
+
+    <div class="comments">
+      <form method="POST" action="/">
+          <div>
+        <textarea name="markdown" placeholder="Enter markdown here" rows="20" cols="50"></textarea>
+          </div>
+          <div>
+            <button type="submit">Submit Markdown</button>
+          </div>
+      </form>
+        <%- content %>
+    </div>
+
+    </body>
+  <html>

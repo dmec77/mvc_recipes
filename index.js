@@ -20,6 +20,8 @@ const dir = {
 
 app.use(logger('dev'));
 
+const marked = require("marked");
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -42,6 +44,15 @@ app.use("/", recipeRouter);
 
 app.get('/', (req, res) => {
   res.redirect(301, '/home');
+});
+
+app.post("/", (req, res) => {
+    //Take the contents of the form textarea and parse them into HTML
+    const parsedContent = marked(req.body.markdown);
+
+    res.render("markdown", {
+        content: parsedContent
+    });
 });
 
 // Global error handler middleware

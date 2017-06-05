@@ -1,0 +1,12 @@
+.ingredients {
+  border: blue 5px solid;
+}
+
+.directions {
+  border: orange 5px solid;
+  float: right;
+}
+
+.comments {
+  border: black 5px solid;
+}

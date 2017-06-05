@@ -1,6 +1,87 @@
 const db = require('../config/database');
 
 module.exports = {
+
+  save(recipe) {
+  debugger;
+  return db.one(`
+  INSERT INTO recipes (
+  recipe_name,
+  category,
+  main_ingredient,
+  keyword,
+  date_created,
+  ) VALUES (
+  $/recipe_name/,
+  $/category/,
+  $/main_ingredient/,
+  $/keyword/,
+  $/date_created/,
+  )
+  RETURNING *
+  `, recipe);
+  },
+
+          // FILE LOCATION: controller.js in RES
+          // create(req, res, next) {
+          //   debugger;
+          //   Recipe.save(req.body.recipe)
+          //     .then((recipe) => {
+          //       res.locals.recipe = recipe;
+          //       next();
+          //     })
+          //     .catch(err => next(err));
+          // },
+
+              // FILE LOCATION: routes.js
+              // ****  .post(controller.create, views.handleCreate);
+              //
+              //       // FILE LOCATION: viewsController.js in RES
+              //       // handleCreate(req, res) {
+              //       //   res.format({
+              //       //     /* REDIRECT TO THE HOME PAGE */
+              //       //     html() {
+              //       //       res.redirect('/home');
+              //       //     },
+              //       //
+              //       //     /* SEND OUT JSON */
+              //       //     // we don't need a body, just a 201
+              //       //     json() {
+              //       //       res.location(`/recipes/${res.locals.recipe.id}`)
+              //       //       .sendStatus(201);
+              //       //     },
+              //       //   });
+              //       // },
+
+findByCategory(category) {
+  return db.one(`
+    SELECT *
+    FROM recipes
+    WHERE category = $1
+  `, category);
+},
+
+                    // FILE LOCATION: controller.js in RES
+                    // getOne(req, res, next) {
+                    //   Recipe.findById(req.params.id)
+                    //     .then((recipe) => {
+                    //       res.locals.recipe = recipe;
+                    //       next();
+                    //     })
+                    //     .catch(() => res.sendStatus(404));
+                    // },
+
+                              // FILE LOCATION: routes.js
+                              // *****router.get('/:id/edit', controller.getOne, views.formEdit);
+                              //
+                              //       // FILE LOCATION: viewsController.js in RES
+                              //       // formEdit(req, res) {
+                              //       //   res.render('recipes/edit', {
+                              //       //     recipe: res.locals.recipe,
+                              //       //   });
+                              //       // };
+
+
   findAll() {
     return db.any(`
       SELECT *
@@ -27,90 +108,6 @@ module.exports = {
                       //       // formNew(req, res) {
                       //       //   res.render('recipes/new');
                       //       // },
-
-
-
-  findById(id) {
-    return db.one(`
-      SELECT *
-      FROM recipes
-      WHERE id = $1
-    `, id);
-  },
-
-        // FILE LOCATION: controller.js in RES
-        // getOne(req, res, next) {
-        //   Recipe.findById(req.params.id)
-        //     .then((recipe) => {
-        //       res.locals.recipe = recipe;
-        //       next();
-        //     })
-        //     .catch(() => res.sendStatus(404));
-        // },
-
-                  // FILE LOCATION: routes.js
-                  // *****router.get('/:id/edit', controller.getOne, views.formEdit);
-                  //
-                  //       // FILE LOCATION: viewsController.js in RES
-                  //       // formEdit(req, res) {
-                  //       //   res.render('recipes/edit', {
-                  //       //     recipe: res.locals.recipe,
-                  //       //   });
-                  //       // },
-
-
-
-save(recipe) {
-debugger;
-return db.one(`
-INSERT INTO recipes (
-recipe_name,
-category,
-main_ingredient,
-keyword,
-date_created,
-) VALUES (
-$/recipe_name/,
-$/category/,
-$/main_ingredient/,
-$/keyword/,
-$/date_created/,
-)
-RETURNING *
-`, recipe);
-},
-
-        // FILE LOCATION: controller.js in RES
-        // create(req, res, next) {
-        //   debugger;
-        //   Recipe.save(req.body.recipe)
-        //     .then((recipe) => {
-        //       res.locals.recipe = recipe;
-        //       next();
-        //     })
-        //     .catch(err => next(err));
-        // },
-
-            // FILE LOCATION: routes.js
-            // ****  .post(controller.create, views.handleCreate);
-            //
-            //       // FILE LOCATION: viewsController.js in RES
-            //       // handleCreate(req, res) {
-            //       //   res.format({
-            //       //     /* REDIRECT TO THE HOME PAGE */
-            //       //     html() {
-            //       //       res.redirect('/home');
-            //       //     },
-            //       //
-            //       //     /* SEND OUT JSON */
-            //       //     // we don't need a body, just a 201
-            //       //     json() {
-            //       //       res.location(`/recipes/${res.locals.recipe.id}`)
-            //       //       .sendStatus(201);
-            //       //     },
-            //       //   });
-            //       // },
-
 
 
 update(recipe) {

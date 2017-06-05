@@ -3,66 +3,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%# <%- include ./partials/head.ejs %>%>
+    <%- include ./partials/head.ejs %>
   </head>
   <body>
 
     <nav>
-      <%# <%- include ./partials/nav.ejs %>%>
+      <%- include ./partials/nav.ejs %>
     </nav>
 
+<%# Add New Recipe Button and POP-UP Modal to submit New Recipe to database%>
 
-    <form method="POST" action="/hotels">
-      <div class="container margin-top-20">
-        <div class="row">
-          <div class="col s12">
-            <div class="card">
-              <div class="card-stacked">
-                <div class="card-content">
-                  <div class="input-field">
-                    <input name="hotel[hotel_name]" type="text" placeholder="Hotel Name" />
-                  </div>
+    <button id="formModal" type="button" class="btn btn-primary btn block" datat-toggle="modal" data-target="#formModal">Add Recipe</button>
 
-                  <div class="input-field">
-                    <textarea name="hotel[hotel_description]" placeholder="Hotel Description" class="materialize-textarea"></textarea>
-                  </div>
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
-                  <div class="input-field">
-                    <input name="hotel[hotel_address]" type="text" placeholder="Hotel Address" />
-                  </div>
+          <form method="post" action="add">
 
-                  <div class="input-field">
-                    <select name="hotel[star_rating]">
-                      <option value="">Hotel Star Rating</option>
-                      <option value="1">1 Star</option>
-                      <option value="2">2 Stars</option>
-                      <option value="3">3 Stars</option>
-                      <option value="4">4 Stars</option>
-                      <option value="5">5 Stars</option>
-                    </select>
-                  </div>
-
-                  <div class="input-field">
-                    <select name="hotel[pet_friendly]">
-                      <option value="">Pet Friendly?</option>
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
-                    </select>
-                  </div>
-
-                  <div class="input-field">
-                    <input name="hotel[hotel_image_url]" type="text" placeholder="Hotel Image URL" />
-                  </div>
-                </div>
-                <div class="card-action">
-                  <button type="submit" class="waves-effect waves-light btn">Submit Hotel</button>
-                </div>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Recipe</h4>
               </div>
-            </div>
-          </div>
+
+              <div class="modal-body">
+
+
+                  <div class="form-group">
+                    <label>Add Recipe</label>
+                    <input type="text class=form-control" name="name"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingredients</label>
+                    <textarea class="form-control" name="ingredients"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Directions</label>
+                    <textarea class="form-control" name="directions"></textarea>
+                  </div>
+
+                </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Save"/>
+                </div>
+            </form>
         </div>
       </div>
-    </form>
+    </div>
 
   </body>
 </html>
