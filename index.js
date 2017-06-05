@@ -41,12 +41,15 @@ app.use(methodOverride('_method'));
 app.use("/", recipeRouter);
 //app.use('/recipes', require('./controllers/recipes');
 
-
+app.get('/recipes', (req, res) => {
+    res.render(recipes.ejs, 'recipes');
+   });
+   
 app.get('/', (req, res) => {
   res.redirect(301, '/home');
 });
 
-app.post("/", (req, res) => {
+app.post("/recipes", (req, res) => {
     //Take the contents of the form textarea and parse them into HTML
     const parsedContent = marked(req.body.markdown);
 

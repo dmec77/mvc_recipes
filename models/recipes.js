@@ -163,7 +163,7 @@ RETURNING *
 
 
 
-********* THIS IS TO DELETE ********* ?????
+********* THIS IS AN EXAMPLE ON HOW TO DELETE ********* ?????
 
 //   destroy(id) {
 //     return db.none(`
